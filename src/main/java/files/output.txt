@@ -1,0 +1,119 @@
+/*
+ * (C) 2019 Agilysys NV, LLC.  All Rights Reserved.  Confidential Information of Agilysys NV, LLC.
+ */
+package com.agilysys.pms.property.util;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.LocalDate;
+import org.springframework.beans.BeanUtils;
+import org.springframework.util.CollectionUtils;
+
+import com.agilysys.platform.common.mapper.ObjectMapperConfigContext;
+import com.agilysys.pms.common.model.ObjectBase;
+import com.agilysys.pms.property.model.annotations.IgnoreOnUpdate;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.common.base.Strings;
+
+public class Utils {
+    private static ObjectMapper objectMapper;
+
+    static {
+        try {
+            objectMapper = new ObjectMapperConfigContext().objectMapper();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Set<String> splitDelimitedList(String value, String delimiter) {
+        Set<String> result = new HashSet<>();
+        if (StringUtils.isNotBlank(value)) {
+            for (String item : value.split(delimiter)) {
+                if (StringUtils.isNotBlank(item)) {
+                    result.add(item.trim());
+                }
+            }
+        }
+        return result;
+    }
+
+    public static String joinFromDelimitedList(Collection<String> values, String delimiter) {
+        String result = null;
+        if (!CollectionUtils.isEmpty(values)) {
+            String[] array = new ArrayList<>(values).toArray(new String[values.size()]);
+            result = StringUtils.join(array, delimiter);
+        }
+        return result;
+    }
+
+    public static Set<LocalDate> getDates(LocalDate startDate, LocalDate endDate) {
+        Set<LocalDate> result = new HashSet<LocalDate>();
+        if (startDate != null && endDate != null && (startDate.isBefore(endDate) || startDate.isEqual(endDate))) {
+            LocalDate currentDate = startDate;
+            while (currentDate.isBefore(endDate) || currentDate.isEqual(endDate)) {
+                result.add(currentDate);
+                currentDate = currentDate.plusDays(1);
+            }
+        }
+        return result;
+    }
+
+    private static Map<Class<? extends ObjectBase>, String[]> ignorePropertiesMap = new HashMap<>();
+
+    public static <T extends ObjectBase> void copyPropertiesForUpdate(T source, T target) {
+        BeanUtils.copyProperties(source, target, getIgnoreProperties(source.getClass()));
+    }
+
+    private static String[] getIgnoreProperties(Class<? extends ObjectBase> clazz) {
+        String[] ignoreProperties = ignorePropertiesMap.get(clazz);
+        if (ignoreProperties == null) {
+            List<String> list = new LinkedList<String>();
+            list.add("id");
+
+            // look for fields with @IgnoreOnUpdate annotation
+            for (Field field : clazz.getDeclaredFields()) {
+                IgnoreOnUpdate annotation = field.getAnnotation(IgnoreOnUpdate.class);
+                if (annotation != null) {
+                    list.add(field.getName());
+                }
+            }
+            ignoreProperties = list.toArray(new String[list.size()]);
+            ignorePropertiesMap.put(clazz, ignoreProperties);
+        }
+        return ignoreProperties;
+    }
+
+    // TODO: remove this and replace usages with JsonUtils.toJson or JsonUtils.print
+    public static String toString(Object value) {
+        try {
+            return objectMapper.writeValueAsString(value);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException("Failed to output instance of '" + value.getClass() + "' to JSON", e);
+        }
+    }
+
+    /**
+     * Converts xxx-yyy-zzz to xxx/yyy/zzz format.
+     *
+     * @param str string to be converted
+     * @return converted string
+     */
+    public static String convertFromHyphenToSlash(String str) {
+        if (Strings.isNullOrEmpty(str)) {
+            return str;
+        }
+
+        return str.replaceAll("-", "/");
+    }
+}

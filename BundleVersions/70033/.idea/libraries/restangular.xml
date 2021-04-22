@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="restangular">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/rgui/ng-ui/app/bower_components/restangular/dist/restangular.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

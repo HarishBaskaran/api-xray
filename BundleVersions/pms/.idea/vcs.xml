@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/accountinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/accountservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/commentinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/commentservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/contentpackage" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/datatools" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/housekeepingoptimization" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/integrationappliance" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/integrationinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/integrationservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mongoops" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/paymentinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/paymentservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pmscommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pmsintegrationtest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/profileinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/profileservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/propertyinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/propertyservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rateinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rateservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/relayinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/relayservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reportinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reportsaggregator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reportservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reservationinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rguestpayshim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rgui" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rtools" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ruleengineservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/servicerequestinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/servicerequestservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/swaggerservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/victorsrootpom" vcs="Git" />
+  </component>
+</project>

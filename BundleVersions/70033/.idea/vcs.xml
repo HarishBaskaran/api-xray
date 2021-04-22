@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/accountinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/accountservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/commentinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/commentservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/integrationinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/integrationservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mongoops" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/paymentinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/paymentservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pmscommon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/profileinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/profileservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/propertyinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/propertyservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rateinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rateservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reportsaggregator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reservationinterface" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/reservationservice" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rguestpayshim" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/rgui" vcs="Git" />
+  </component>
+</project>
